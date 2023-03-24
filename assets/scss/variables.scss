@@ -1,0 +1,17 @@
+$mainTextColor: #0f0f0f;
+$primaryBackground: #f5f5f5;
+
+$breakpoints: (
+    "mobile": (
+        max-width: 375px,
+    ),
+    "tablet": (
+        max-width: 834px,
+    ),
+    "small_laptop": (
+        max-width: 1023px,
+    ),
+    "laptop": (
+        max-width: 1100px,
+    ),
+) !default;
