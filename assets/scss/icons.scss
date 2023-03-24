@@ -2,10 +2,10 @@ $icons-font: "icons";
 
 @font-face {
     font-family: $icons-font;
-    src: url("../../public/fonts/icons/icons.ttf?b137f4986db9ec43f36adcc6f5a4c31c") format("truetype"),
-url("../../public/fonts/icons/icons.woff?b137f4986db9ec43f36adcc6f5a4c31c") format("woff"),
-url("../../public/fonts/icons/icons.woff2?b137f4986db9ec43f36adcc6f5a4c31c") format("woff2"),
-url("../../public/fonts/icons/icons.svg?b137f4986db9ec43f36adcc6f5a4c31c#icons") format("svg");
+    src: url("../../public/fonts/icons/icons.ttf?d69f89afd241ab086b8d07622e80de79") format("truetype"),
+url("../../public/fonts/icons/icons.woff?d69f89afd241ab086b8d07622e80de79") format("woff"),
+url("../../public/fonts/icons/icons.woff2?d69f89afd241ab086b8d07622e80de79") format("woff2"),
+url("../../public/fonts/icons/icons.svg?d69f89afd241ab086b8d07622e80de79#icons") format("svg");
 }
 
 i[class^="icon-"]:before, i[class*=" icon-"]:before {
@@ -23,8 +23,16 @@ $icons-map: (
     "account": "\f101",
     "arrow-bottom": "\f102",
     "backet": "\f103",
-    "like": "\f104",
-    "search": "\f105",
+    "email": "\f104",
+    "facebook": "\f105",
+    "filled": "\f106",
+    "instagram": "\f107",
+    "like": "\f108",
+    "search": "\f109",
+    "star": "\f10a",
+    "twitter": "\f10b",
+    "viber": "\f10c",
+    "whatsapp": "\f10d",
 );
 
 .icon-account:before {
@@ -36,9 +44,33 @@ $icons-map: (
 .icon-backet:before {
     content: map-get($icons-map, "backet");
 }
+.icon-email:before {
+    content: map-get($icons-map, "email");
+}
+.icon-facebook:before {
+    content: map-get($icons-map, "facebook");
+}
+.icon-filled:before {
+    content: map-get($icons-map, "filled");
+}
+.icon-instagram:before {
+    content: map-get($icons-map, "instagram");
+}
 .icon-like:before {
     content: map-get($icons-map, "like");
 }
 .icon-search:before {
     content: map-get($icons-map, "search");
+}
+.icon-star:before {
+    content: map-get($icons-map, "star");
+}
+.icon-twitter:before {
+    content: map-get($icons-map, "twitter");
+}
+.icon-viber:before {
+    content: map-get($icons-map, "viber");
+}
+.icon-whatsapp:before {
+    content: map-get($icons-map, "whatsapp");
 }
