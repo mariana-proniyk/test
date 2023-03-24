@@ -5,5 +5,69 @@ html(lang='en')
     +Head('Home page')
     body
         include parts/header.pug
+        section.home-hero-section
+            .hero-slider.content-center
+                .slide
+                    .wrapper
+                        .body
+                            h1 МУЖСКАЯ КОЛЛЕКЦИЯ 1
+                            p Распродажа коллекций со скидками до 50%, доставка до вашего склада
+                            +Button('ПОДРОБНЕЕ', 'is-transparent')
+                        .image-wrapper
+                            img(src="./public/images/product-big.png", alt="")
+                .slide
+                    .wrapper
+                        .body
+                            h1 МУЖСКАЯ КОЛЛЕКЦИЯ 2
+                            p Распродажа коллекций со скидками до 50%, доставка до вашего склада
+                            +Button('ПОДРОБНЕЕ', 'is-transparent')
+                        .image-wrapper
+                            img(src="./public/images/product-big.png", alt="")
+                .slide
+                    .wrapper
+                        .body
+                            h1 МУЖСКАЯ КОЛЛЕКЦИЯ 3
+                            p Распродажа коллекций со скидками до 50%, доставка до вашего склада
+                            +Button('ПОДРОБНЕЕ', 'is-transparent')
+                        .image-wrapper
+                            img(src="./public/images/product-big.png", alt="")
+        secrion.banner-section 
+            .cards.content-center
+                +BannerItem('Акции- Новая серия', 'Мужские футболки с модными принтами в стиле Хайтек')
+                +BannerItem('Успей до 10.04', 'Распродажа со скидками до 50%. Мужские футболки всех размеров.')
+                +BannerItem('Скидки до 45%', 'На все футболки серии Лето 2019 при заказе от 2000 грн.')
+        section.catalog-section.content-center
+            ul.tabs-menu 
+                li(class="is-active" data-id-tab="new") Новинки 
+                li( data-id-tab="top") ТОП продаж
+                li( data-id-tab="sale") Скидки
+            .tab-content.new.is-open
+                .wrapper 
+                    - for (var x = 0; x < 8; x++)
+                        include parts/product-item.pug
+                +Button('Посмотреть каталог', 'is-transparent')
+            .tab-content.top 
+                .wrapper
+                    - for (var x = 0; x < 4; x++)
+                        include parts/product-item.pug
+                +Button('Посмотреть каталог 2', 'is-transparent')
+            .tab-content.sale 
+                .wrapper 
+                    - for (var x = 0; x < 8; x++)
+                        include parts/product-item.pug
+                +Button('Посмотреть каталог 3', 'is-transparent')
+        section.news-section
+            .content-center
+                ul.tabs-menu 
+                    li(class="is-active" data-id-tab="news") Новости 
+                    li( data-id-tab="review") Отзывы
+                .tab-content.news.is-open
+                    .wrapper 
+                        - for (var x = 0; x < 2; x++)
+                            include parts/news-banner.pug
+                    +Button('БОЛЬШЕ НОВОСТЕЙ', 'is-transparent more')
+                .tab-content.review 
+                    .wrapper  
+                        h2 Reviews will be here 
         include parts/footer.pug
         include parts/global-modals.pug
