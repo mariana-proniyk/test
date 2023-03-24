@@ -1,4 +1,19 @@
-<div class="remodal" data-remodal-id="authorization">
-    <button data-remodal-action="close" class="remodal-close"></button>
-    <div>Authorization here</div>
-</div>
+.remodal(data-remodal-id="authorization") 
+    .remodal-box
+        .buttons
+            +Button('ЛОГИН', 'is-black')
+            +Button('РЕГИСТРАЦИЯ','is-dark-border')
+        form.form 
+            .form-item
+                    .input-wrapper
+                        input(type="text" name="email" placeholder="Введите email")
+                    .input-wrapper
+                        input(type="text" name="password" placeholder="Введите пароль")
+                    +Button('ВОЙТИ', 'is-black')
+                    a(href="#forgot-password") 
+                        span Забыли пароль?
+
+.remodal(data-remodal-id="forgot-password") 
+    h2 Forgot password will be here
+
+
