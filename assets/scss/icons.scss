@@ -1,0 +1,44 @@
+$icons-font: "icons";
+
+@font-face {
+    font-family: $icons-font;
+    src: url("../../public/fonts/icons/icons.ttf?b137f4986db9ec43f36adcc6f5a4c31c") format("truetype"),
+url("../../public/fonts/icons/icons.woff?b137f4986db9ec43f36adcc6f5a4c31c") format("woff"),
+url("../../public/fonts/icons/icons.woff2?b137f4986db9ec43f36adcc6f5a4c31c") format("woff2"),
+url("../../public/fonts/icons/icons.svg?b137f4986db9ec43f36adcc6f5a4c31c#icons") format("svg");
+}
+
+i[class^="icon-"]:before, i[class*=" icon-"]:before {
+    font-family: icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$icons-map: (
+    "account": "\f101",
+    "arrow-bottom": "\f102",
+    "backet": "\f103",
+    "like": "\f104",
+    "search": "\f105",
+);
+
+.icon-account:before {
+    content: map-get($icons-map, "account");
+}
+.icon-arrow-bottom:before {
+    content: map-get($icons-map, "arrow-bottom");
+}
+.icon-backet:before {
+    content: map-get($icons-map, "backet");
+}
+.icon-like:before {
+    content: map-get($icons-map, "like");
+}
+.icon-search:before {
+    content: map-get($icons-map, "search");
+}
