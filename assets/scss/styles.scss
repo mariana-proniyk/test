@@ -334,7 +334,7 @@ body {
             width: 100%;
             height: 531px;
             object-fit: cover;
-            object-position: left top;
+            object-position: center top;
         }
     }
     .interactions {
@@ -451,12 +451,17 @@ body {
         padding: 40px 44px 30px 44px;
         display: flex;
         flex-direction: column;
-        .buttons {
-            display: flex;
-            justify-content: space-between;
+        .tabs-menu {
             margin-bottom: 55px;
-            .button {
-                width: 49%;
+            width: 100%;
+            li {
+                width: 100%;
+                max-width: 291px;
+                transition: all 300ms ease-in-out;
+                &.is-active {
+                    background-color: #000000;
+                    color: #ffff;
+                }
             }
         }
         .form {
@@ -477,9 +482,10 @@ body {
                         outline: none;
                         border-bottom: 1px solid #0f0f0f;
                         padding-bottom: 14px;
+                        font-size: 20px;
                         &::placeholder {
                             font-weight: 700;
-                            font-size: 18px;
+                            font-size: 20px;
                             line-height: 22px;
                             color: #0f0f0f;
                             width: 100%;

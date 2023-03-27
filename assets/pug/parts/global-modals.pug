@@ -1,18 +1,37 @@
 .remodal(data-remodal-id="authorization") 
     .remodal-box
-        .buttons
-            +Button('ЛОГИН', 'is-black')
-            +Button('РЕГИСТРАЦИЯ','is-dark-border')
-        form.form 
-            .form-item
-                    .input-wrapper
-                        input(type="text" name="email" placeholder="Введите email")
-                    .input-wrapper
-                        input(type="text" name="password" placeholder="Введите пароль")
-                    +Button('ВОЙТИ', 'is-black')
-                    a(href="#forgot-password") 
-                        span Забыли пароль?
-
+        ul.tabs-menu
+            li.button.is-dark-border(class="is-active" data-id-tab="login") ЛОГИН 
+            li.button.is-dark-border( data-id-tab="registration") РЕГИСТРАЦИЯ
+        //- .buttons
+        //-     +Button('ЛОГИН', 'is-black')
+        //-     +Button('РЕГИСТРАЦИЯ','is-dark-border')
+        .tab-content.login.is-open
+            form.form 
+                .form-item
+                        .input-wrapper
+                            input(type="text" name="email" placeholder="Введите email")
+                        .input-wrapper
+                            input(type="text" name="password" placeholder="Введите пароль")
+                        +Button('ВОЙТИ', 'is-black')
+                        a(href="#forgot-password") 
+                            span Забыли пароль?
+        .tab-content.registration
+            form.form
+                .form-item
+                        .input-wrapper
+                            input(type="text" name="name" placeholder="Введите имя")
+                        .input-wrapper
+                            input(type="text" name="text" placeholder="Ваш Город")
+                        .input-wrapper
+                            input(type="text" name="phone" placeholder="Введите телефон")
+                        .input-wrapper
+                            input(type="text" name="email" placeholder="Введите email")
+                        .input-wrapper
+                            input(type="text" name="password" placeholder="Введите пароль")
+                        .input-wrapper
+                            input(type="text" name="password" placeholder="Подтвердите  пароль")
+                        +Button('ЗАРЕГИСТРИРОВАТЬСЯ', 'is-black')
 .remodal(data-remodal-id="forgot-password") 
     h2 Forgot password will be here
 
