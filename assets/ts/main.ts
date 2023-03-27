@@ -17,7 +17,7 @@ $(".tabs-menu li").on("click", function () {
     $(`.${$(this).data("idTab")}`).addClass("is-open");
 });
 
-$(".size span").on("click", function () {
+$(".interactions span").on("click", function () {
     const sizeMenuElement = $(this).parent();
 
     sizeMenuElement.find("span").each(function () {
@@ -42,10 +42,10 @@ $(".remodal form").validate({
         },
     },
     messages: {
-        name: {
+        email: {
             required: "*некорректно введенные данные",
         },
-        email: {
+        password: {
             required: "*некорректно введенные данные",
         },
     },
