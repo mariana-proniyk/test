@@ -277,7 +277,6 @@ body {
             }
         }
         .icons {
-            margin-left: 20px;
             li {
                 a {
                     i {
@@ -416,10 +415,14 @@ body {
     @include screen("laptop") {
         font-size: 12px;
         .dropdown {
-            padding-left: 100px;
             .buttons {
                 li {
-                    max-width: 150px;
+                    max-width: 250px;
+                    a {
+                        &.button {
+                            text-align: center;
+                        }
+                    }
                 }
             }
             .blocks-wrapper {
