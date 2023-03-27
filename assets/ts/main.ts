@@ -27,7 +27,7 @@ $(".interactions span").on("click", function () {
     $(this).addClass("is-active");
 });
 
-$(".remodal form").validate({
+$(".remodal .login-form").validate({
     errorElement: "div",
     errorPlacement: function (error, element) {
         element.parent().append(error);
@@ -51,6 +51,48 @@ $(".remodal form").validate({
     },
 });
 
+$(".remodal .registration-form").validate({
+    errorElement: "div",
+    errorPlacement: function (error, element) {
+        element.parent().append(error);
+    },
+    rules: {
+        name: {
+            required: true,
+        },
+        text: {
+            required: true,
+        },
+        email: {
+            required: true,
+            email: true,
+        },
+        password: {
+            required: true,
+        },
+        phone: {
+            required: true,
+        },
+    },
+    messages: {
+        name: {
+            required: "*некорректно введенные данные",
+        },
+        text: {
+            required: "*некорректно введенные данные",
+        },
+        email: {
+            required: "*некорректно введенные данные",
+        },
+        password: {
+            required: "*некорректно введенные данные",
+        },
+        phone: {
+            required: "*некорректно введенные данные",
+        },
+    },
+});
+
 $(".stars-block .icon-star").on("click", function () {
     const index = $(this).index();
     $(this)
@@ -66,9 +108,11 @@ $(".stars-block .icon-star").on("click", function () {
 });
 
 $(".hero-slider").slick({
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     fade: true,
     cssEase: "linear",
 });
+
+$(".phone-input").inputmask("+38 (999) 999-99-99");
