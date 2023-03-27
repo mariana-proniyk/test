@@ -1,13 +1,12 @@
 .remodal(data-remodal-id="authorization") 
+    .close
+        i.icon-close(data-remodal-action="close")
     .remodal-box
         ul.tabs-menu
             li.button.is-dark-border(class="is-active" data-id-tab="login") ЛОГИН 
             li.button.is-dark-border( data-id-tab="registration") РЕГИСТРАЦИЯ
-        //- .buttons
-        //-     +Button('ЛОГИН', 'is-black')
-        //-     +Button('РЕГИСТРАЦИЯ','is-dark-border')
         .tab-content.login.is-open
-            form.form 
+            form.form.login-form
                 .form-item
                         .input-wrapper
                             input(type="text" name="email" placeholder="Введите email")
@@ -17,7 +16,7 @@
                         a(href="#forgot-password") 
                             span Забыли пароль?
         .tab-content.registration
-            form.form
+            form.form.registration-form
                 .form-item
                         .input-wrapper
                             input(type="text" name="name" placeholder="Введите имя")
@@ -32,7 +31,25 @@
                         .input-wrapper
                             input(type="text" name="password" placeholder="Подтвердите  пароль")
                         +Button('ЗАРЕГИСТРИРОВАТЬСЯ', 'is-black')
-.remodal(data-remodal-id="forgot-password") 
-    h2 Forgot password will be here
+.remodal.forgot-password(data-remodal-id="forgot-password") 
+    .close
+        i.icon-close(data-remodal-action="close")
+    .remodal-box
+        h5.text ВОССТАНОВЛЕНИЕ ПАРОЛЯ 
+        form.form
+            .form-item
+                .input-wrapper
+                    input(type="text" name="email" placeholder="Введите email")
+                    +Button('ВОССТАНОВИТЬ', 'is-black')
+.remodal.search(data-remodal-id="search") 
+    .remodal-box  
+        .search-window 
+            i.icon-search 
+            input(type="text" placeholder ="Возможно вы ищите:")
+            i.icon-close(data-remodal-action="close")
+        .wrapper
+            - for (var x = 0; x < 12; x++)
+                include ./product-item.pug 
+
 
 
