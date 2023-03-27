@@ -69,5 +69,18 @@ html(lang='en')
                 .tab-content.review 
                     .wrapper  
                         h2 Reviews will be here 
+        section.subscribe-section.content-center 
+            h3 Подпишись и следи за новыми поступлениями и акциями
+            .subscribe
+                .networks 
+                    a(href="#") 
+                        i.icon-viber
+                    a(href="#") 
+                        i.icon-twitter
+                form.form 
+                    .input-wrapper
+                        i.icon-tel
+                        input.phone-input(type="tel" name="phone" placeholder="+38 (___) ___-__-__")
+                    +Button('ЗАРЕГИСТРИРОВАТЬСЯ', 'is-black')
         include parts/footer.pug
         include parts/global-modals.pug

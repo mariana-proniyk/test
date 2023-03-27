@@ -12,6 +12,12 @@ h2 {
     font-weight: 700;
     font-size: 36px;
     line-height: 44px;
+    @include screen("laptop") {
+        font-size: 28px;
+    }
+    @include screen("tablet") {
+        font-size: 22px;
+    }
 }
 
 h3 {
@@ -19,12 +25,36 @@ h3 {
     line-height: 37px;
     letter-spacing: 0.07em;
     font-weight: 700;
+    @include screen("laptop") {
+        font-size: 26px;
+    }
+    @include screen("tablet") {
+        font-size: 20px;
+    }
+}
+
+h4 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    @include screen("laptop") {
+        font-size: 20px;
+    }
+    @include screen("tablet") {
+        font-size: 18px;
+    }
 }
 
 h5 {
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
+    @include screen("laptop") {
+        font-size: 16px;
+    }
+    @include screen("tablet") {
+        font-size: 14px;
+    }
 }
 
 body {
@@ -38,6 +68,12 @@ body {
     display: none;
     &.is-open {
         display: block !important;
+    }
+    @include screen("laptop") {
+        margin-top: 80px !important;
+    }
+    @include screen("tablet") {
+        margin-top: 60px !important;
     }
 }
 
@@ -70,6 +106,9 @@ body {
         &.is-active {
             color: #000000;
         }
+    }
+    @include screen("laptop") {
+        width: 34%;
     }
 }
 
@@ -110,16 +149,21 @@ body {
         color: #0f0f0f;
         border: 1px solid #0f0f0f;
         background: transparent;
+        transition: all 400ms ease-in-out;
+        &:hover {
+            background-color: $mainTextColor;
+            color: #fff;
+        }
     }
     &.is-white {
-        color: #0f0f0f;
+        color: $mainTextColor;
         background-color: #fff;
         height: 65px;
     }
     &.is-black {
         height: 69px;
         color: #fff;
-        background: #0f0f0f;
+        background: $mainTextColor;
     }
     &.is-border {
         background: transparent;
@@ -129,9 +173,15 @@ body {
     }
     &.is-dark-border {
         background: #ffffff;
-        color: #0f0f0f;
+        color: $mainTextColor;
         height: 69px;
         border: 3px solid #0f0f0f;
+    }
+    @include screen("laptop") {
+        font-size: 16px;
+    }
+    @include screen("tablet") {
+        font-size: 14px;
     }
 }
 
@@ -153,37 +203,34 @@ body {
 
 .main-header {
     display: flex;
-    padding-top: 32px;
     align-items: center;
     justify-content: space-between;
+    padding-left: 6px;
+    position: relative;
+    padding-top: 33px;
     .wrapper {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 54%;
+        width: 70%;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
     }
     nav {
-        margin-bottom: 18px;
         ul {
             display: flex;
+            align-items: center;
             li {
-                font-weight: 700;
-                font-size: 14px;
-                line-height: 17px;
                 margin-left: 24px;
                 &:first-child {
                     margin-left: 0;
-                }
-                i {
-                    font-size: 8px;
-                    margin-left: 7px;
                 }
             }
         }
     }
     .icons {
         display: flex;
-        margin-bottom: 26px;
+        margin-bottom: 10px;
         li {
             margin-left: 71px;
             &:first-child {
@@ -192,6 +239,201 @@ body {
         }
         i {
             font-size: 25px;
+            transition: all 400ms ease-in-out;
+            &.icon-like {
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+    .logo {
+        margin-left: 10%;
+    }
+    @include screen("desktop") {
+        .wrapper {
+            width: 100%;
+            font-size: 12px;
+            .catalog-menu {
+                margin-right: 0;
+                .title {
+                    padding-left: 13px;
+                    padding-right: 13px;
+                }
+            }
+            nav {
+                ul {
+                    li {
+                        margin-left: 18px;
+                    }
+                }
+            }
+            .logo {
+                width: 120px;
+                margin-left: 5%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .icons {
+            margin-left: 20px;
+            li {
+                a {
+                    i {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+    @include screen("laptop") {
+        .wrapper,
+        .catalog-menu {
+            font-size: 10px;
+            .logo {
+                width: 80px;
+                margin-left: 10%;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .icons {
+            li {
+                margin-left: 21px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                a {
+                    i {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.catalog-menu {
+    .title {
+        height: 110px;
+        display: flex;
+        position: relative;
+        z-index: 5;
+        align-items: center;
+        cursor: pointer;
+        padding-left: 24px;
+        padding-right: 24px;
+        transition: all 200ms ease-in-out;
+        i {
+            margin-left: 8px;
+            font-size: 8px;
+            transition: transform 200ms ease-in-out;
+        }
+    }
+    .dropdown {
+        position: absolute;
+        top: 0;
+        left: -74px;
+        right: -80px;
+        padding: 158px 80px 60px;
+        opacity: 0;
+        visibility: hidden;
+        background-color: #fff;
+        transition: all 200ms ease-in-out;
+        box-shadow: 0px 102px 124px rgba(0, 0, 0, 0.25);
+        .buttons {
+            display: flex;
+            width: 100%;
+            border-bottom: 1px solid #878787;
+            padding-bottom: 40px;
+            li {
+                margin-left: 30px;
+                .button {
+                    padding: 0 58px;
+                    height: 59px;
+                    letter-spacing: 3px;
+                    text-transform: none;
+                }
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+            @include screen("big_screen") {
+                padding-right: 0;
+                padding-left: 6px;
+                left: 0;
+                right: 0;
+            }
+        }
+        .blocks-wrapper {
+            padding-top: 31px;
+            display: flex;
+            .list-block {
+                margin-left: 7.5%;
+                h4 {
+                    letter-spacing: 0;
+                }
+                ul {
+                    margin-top: 27px;
+                    li {
+                        margin-top: 20px;
+                        a {
+                            font-size: 18px;
+                            line-height: 22px;
+                            font-weight: 400;
+                            color: #666;
+                            transition: all 300ms ease-in-out;
+                            &:hover {
+                                color: $mainTextColor;
+                            }
+                        }
+                        &:first-child {
+                            margin-top: 0;
+                        }
+                    }
+                }
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+    &:hover {
+        .title {
+            background-color: rgba($mainTextColor, 0.5);
+            color: #fff;
+            i {
+                transform: rotate(180deg);
+            }
+        }
+        .dropdown {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    @include screen("laptop") {
+        font-size: 12px;
+        .dropdown {
+            padding-left: 100px;
+            .buttons {
+                li {
+                    max-width: 150px;
+                }
+            }
+            .blocks-wrapper {
+                padding-left: 30px;
+                .list-block {
+                    ul {
+                        li {
+                            a {
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
@@ -253,6 +495,10 @@ body {
     background-color: #fff;
     width: 33.33333%;
     min-height: 241px;
+    transition: all 0.6s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
     img {
         height: auto;
         max-width: 238px;
@@ -267,6 +513,28 @@ body {
             margin-top: 16px;
         }
     }
+    @include screen("laptop") {
+        flex-direction: column;
+        justify-content: center;
+        img {
+            width: 200px;
+        }
+        .body {
+            text-align: center;
+            padding-bottom: 8px;
+            h3 {
+                font-size: 20px;
+                letter-spacing: 0;
+            }
+            p {
+                font-size: 14px;
+                margin-top: 8px;
+            }
+        }
+    }
+    @include screen("mobile") {
+        flex-direction: column;
+    }
 }
 
 .catalog-section {
@@ -277,6 +545,10 @@ body {
         button {
             margin-top: -20px;
             letter-spacing: 2px;
+            @include screen("mobile") {
+                max-width: 250px;
+                width: 100%;
+            }
         }
     }
     .wrapper {
@@ -284,6 +556,16 @@ body {
         margin-right: -31px;
         display: flex;
         flex-wrap: wrap;
+        @include screen("mobile") {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            .product-item {
+                width: 100%;
+                img {
+                    height: 100%;
+                }
+            }
+        }
     }
     .button {
         max-width: 22%;
@@ -320,6 +602,16 @@ body {
             color: #000000;
         }
     }
+    @include screen("laptop") {
+        li {
+            font-size: 16px;
+        }
+    }
+    @include screen("tablet") {
+        li {
+            font-size: 14px;
+        }
+    }
 }
 
 .product-item {
@@ -341,8 +633,15 @@ body {
         display: flex;
         margin-bottom: 13px;
         justify-content: space-between;
+        align-items: center;
         .size-block {
             margin-top: 2px;
+            span {
+                transition: all 300ms ease-in-out;
+                &:hover {
+                    color: $mainTextColor;
+                }
+            }
         }
     }
     .body {
@@ -352,6 +651,48 @@ body {
             font-weight: 700;
             font-size: 30px;
             line-height: 37px;
+        }
+    }
+    @include screen("laptop") {
+        margin-bottom: 45px;
+        .image-wrapper {
+            .preview {
+                height: 350px;
+            }
+        }
+        .body {
+            .interactions {
+                .size-block {
+                    span {
+                        font-size: 13px;
+                    }
+                }
+                .stars-block {
+                    i {
+                        font-size: 13px;
+                    }
+                }
+            }
+            h5 {
+                font-size: 14px;
+            }
+            .price {
+                font-size: 20px;
+                margin-top: 10px;
+            }
+        }
+    }
+    @include screen("tablet") {
+        .image-wrapper {
+            .preview {
+                height: 220px;
+            }
+        }
+        .body {
+            .price {
+                font-size: 17px;
+                margin-top: 10px;
+            }
         }
     }
 }
@@ -393,6 +734,10 @@ body {
     flex-direction: column;
     width: 48%;
     position: relative;
+    transition: all 0.6s ease-in-out;
+    &:hover {
+        transform: scale(1.05);
+    }
     .body {
         z-index: 3;
         padding-top: 17px;
@@ -417,7 +762,7 @@ body {
             max-width: 270px;
             &:hover {
                 background: #ffffff;
-                color: #0f0f0f;
+                color: $mainTextColor;
             }
         }
     }
@@ -426,7 +771,7 @@ body {
         content: "";
         position: absolute;
         inset: 0;
-        background: #0f0f0f;
+        background: $mainTextColor;
         opacity: 0.5;
     }
     &:hover {
@@ -437,20 +782,69 @@ body {
             }
         }
         &:before {
-            background: #0f0f0f;
+            background: $mainTextColor;
             opacity: 0.9;
             content: "";
             position: absolute;
             inset: 0;
         }
     }
+    @include screen("tablet") {
+        .body {
+            h2 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .button {
+                font-size: 16px;
+            }
+        }
+    }
 }
 
 .remodal {
+    position: relative;
+    .close {
+        z-index: 10;
+        transition: all 300ms ease-in-out;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border: 3px solid #0f0f0f;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: -15px;
+        right: -12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .icon-close {
+            color: $mainTextColor;
+            font-size: 18px;
+        }
+        &:hover {
+            background-color: $mainTextColor;
+            i {
+                color: #fff;
+            }
+        }
+    }
     .remodal-box {
         padding: 40px 44px 30px 44px;
         display: flex;
         flex-direction: column;
+        .text {
+            color: #fff;
+            background-color: $mainTextColor;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+        }
         .tabs-menu {
             margin-bottom: 55px;
             width: 100%;
@@ -487,7 +881,7 @@ body {
                             font-weight: 700;
                             font-size: 20px;
                             line-height: 22px;
-                            color: #0f0f0f;
+                            color: $mainTextColor;
                             width: 100%;
                         }
                     }
@@ -517,6 +911,197 @@ body {
             }
         }
     }
+    &.forgot-password {
+        max-width: 500px;
+        width: 100%;
+        .form {
+            margin-top: 52px;
+            .form-item {
+                .input-wrapper {
+                    margin-bottom: 0;
+                    .button {
+                        margin-top: 37px;
+                        width: 100%;
+                        margin-bottom: 40px;
+                    }
+                }
+            }
+        }
+    }
+    &.search {
+        width: 100%;
+        max-width: 1742px;
+        .remodal-box {
+            .search-window {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                position: relative;
+                border-bottom: 1px solid #878787;
+                padding-bottom: 15px;
+                margin-bottom: 76px;
+                input {
+                    padding: 5px 0;
+                    line-height: 20px;
+                    border: none;
+                    outline: none;
+                    width: 100%;
+                    font-weight: 500;
+                    font-size: 20px;
+                    line-height: 24px;
+                    padding-left: 15px;
+                    &::placeholder {
+                        padding-left: 25px;
+                        font-weight: 500;
+                        font-size: 20px;
+                        line-height: 24px;
+                    }
+                }
+                i {
+                    font-size: 20px;
+                    &.icon-close {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        &:hover {
+                            color: black;
+                            font-size: 23px;
+                        }
+                    }
+                }
+            }
+            .wrapper {
+                display: flex;
+                flex-wrap: wrap;
+                max-height: 600px;
+                overflow: auto;
+                .product-item {
+                    width: 25%;
+                    .body {
+                        .price {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.subscribe-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px 30px;
+    h3 {
+        width: 40%;
+    }
+    .subscribe {
+        width: 60%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .networks {
+            width: 15%;
+            display: flex;
+            flex-direction: row;
+            a {
+                margin-left: 30px;
+                &:first-child {
+                    margin-left: 0;
+                }
+                i {
+                    font-size: 50px;
+                    color: #878787;
+                    transition: all 0.6s ease-in-out;
+                    &:hover {
+                        color: $mainTextColor;
+                    }
+                }
+            }
+        }
+        .form {
+            width: 85%;
+            display: flex;
+            color: #878787;
+            margin-left: 50px;
+            .input-wrapper {
+                width: 50%;
+                background: #ffffff;
+                border: 2px solid #bfbfbf;
+                display: flex;
+                align-items: center;
+                padding: 20px 30px;
+                i {
+                    font-size: 25px;
+                    margin-right: 12px;
+                }
+                input {
+                    width: 100%;
+                    border: none;
+                    outline: none;
+                    font-size: 24px;
+                    line-height: 29px;
+                }
+            }
+            .button {
+                width: 50%;
+                height: 74px;
+                transition: all 0.6s ease-in-out;
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+    @include screen("laptop") {
+        flex-direction: column;
+        h3 {
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 0;
+            width: 100%;
+        }
+        .subscribe {
+            .networks {
+                a {
+                    i {
+                        font-size: 35px;
+                    }
+                }
+            }
+        }
+    }
+    @include screen("tablet") {
+        .subscribe {
+            width: 100%;
+            .networks {
+                display: none;
+            }
+            .form {
+                width: 100%;
+                flex-direction: column;
+                .input-wrapper {
+                    width: 100%;
+                }
+                .button {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    @include screen("mobile") {
+        .form {
+            width: 100%;
+            flex-direction: column;
+            .input-wrapper {
+                width: 100%;
+            }
+            .button {
+                width: 100%;
+            }
+        }
+    }
 }
 
 .main-footer {
@@ -530,10 +1115,12 @@ body {
         }
         .decor {
             position: absolute;
-            bottom: -1%;
-            left: 3%;
+            bottom: 0%;
+            left: 13%;
         }
         .wrapper {
+            position: relative;
+            z-index: 10;
             .logo {
                 margin-right: 15%;
             }
@@ -544,7 +1131,6 @@ body {
                 width: 33%;
                 ul {
                     margin-top: 50px;
-
                     li {
                         a {
                             font-weight: 400;
@@ -586,6 +1172,74 @@ body {
                 }
             }
         }
+        @include screen("laptop") {
+            .decor {
+                display: none;
+            }
+            .wrapper {
+                .logo {
+                    margin-right: 7%;
+                    max-width: 100px;
+                    display: flex;
+                    width: 100%;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .list {
+                    h3 {
+                        font-size: 20px;
+                    }
+                    margin-left: 5%;
+                    &:first-child {
+                        margin-left: 0;
+                    }
+                    ul {
+                        li {
+                            a {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                }
+                .social {
+                    margin-left: 5%;
+                    .contacts {
+                        a {
+                            font-size: 20px;
+                        }
+                    }
+                    .networks {
+                        a {
+                            i {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        @include screen("tablet") {
+            padding-top: 80px;
+            .wrapper {
+                flex-direction: column;
+                .logo {
+                    max-width: 100px;
+                    width: 100%;
+                    margin-bottom: 50px;
+                    margin-left: 30px;
+                    img {
+                        width: 100%;
+                    }
+                }
+                .list {
+                    margin-bottom: 20px;
+                    ul {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
     }
     .bottom-content {
         background: #333333;
@@ -620,6 +1274,23 @@ body {
                 img {
                     margin-left: 20px;
                 }
+            }
+        }
+        @include screen("laptop") {
+            .wrapper {
+                flex-direction: column;
+                .left-content {
+                    margin-bottom: 10px;
+                }
+                .left-content,
+                .right-content {
+                    font-size: 12px;
+                }
+            }
+        }
+        @include screen("tablet") {
+            .wrapper {
+                font-size: 10px;
             }
         }
     }
