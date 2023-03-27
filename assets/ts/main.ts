@@ -44,6 +44,7 @@ $(".remodal .login-form").validate({
     messages: {
         email: {
             required: "*некорректно введенные данные",
+            email: "*некорректно введенные данные",
         },
         password: {
             required: "*некорректно введенные данные",
@@ -83,6 +84,7 @@ $(".remodal .registration-form").validate({
         },
         email: {
             required: "*некорректно введенные данные",
+            email: "*некорректно введенные данные",
         },
         password: {
             required: "*некорректно введенные данные",
@@ -93,26 +95,18 @@ $(".remodal .registration-form").validate({
     },
 });
 
-$(".stars-block .icon-star").on("click", function () {
-    const index = $(this).index();
-    $(this)
-        .parent()
-        .find(".icon-star")
-        .each(function (i) {
-            if (i <= index) {
-                $(this).addClass("is-active");
-            } else {
-                $(this).removeClass("is-active");
-            }
-        });
-});
-
 $(".hero-slider").slick({
-    dots: false,
+    dots: true,
     infinite: true,
+    arrows: false,
     speed: 500,
     fade: true,
     cssEase: "linear",
+    customPaging: function (_, i) {
+        const number = i + 1;
+
+        return `${number < 10 ? `0${number}` : number}`;
+    },
 });
 
 $(".phone-input").inputmask("+38 (999) 999-99-99");
