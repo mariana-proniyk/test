@@ -51,6 +51,7 @@ function librariesTask(done) {
         "./node_modules/remodal/dist/remodal.min.js",
         "./node_modules/jquery-validation/dist/jquery.validate.min.js",
         "./node_modules/slick-slider/slick/slick.min.js",
+        "./node_modules/inputmask/dist/jquery.inputmask.min.js",
     ])
         .pipe(
             plumber({
